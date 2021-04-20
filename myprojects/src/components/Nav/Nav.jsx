@@ -5,11 +5,10 @@ function Nav() {
     return (
         <nav className = {classNames.navbar}>
             <div>            
-                <img src="logo192.png" alt="logo site" className = {classNames.imgLogo}/>
-           
+                <img src="logo192.png" alt="logo site" className = {classNames.imgLogo}/>           
             </div>
             <div>
-                <ul>
+                <ul className = {classNames.menus}>
                     <li>Mes projets</li>
                     <li>Se connecter</li>
                 </ul>
@@ -18,5 +17,5 @@ function Nav() {
     )
 }
 
-export default Nav
+export default Nav;
 
