@@ -5,8 +5,7 @@ function Nav() {
     return (
         <nav className = {classNames.navbar}>
             <div>            
-                <img src="logo192.png" alt="logo site" className = {classNames.imgLogo}/>
-           
+                <img src="logo192.png" alt="logo site" className = {classNames.imgLogo}/>           
             </div>
             <div>
                 <ul>
@@ -18,5 +17,5 @@ function Nav() {
     )
 }
 
-export default Nav
+export default Nav;
 
