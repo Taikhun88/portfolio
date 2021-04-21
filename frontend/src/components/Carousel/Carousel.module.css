@@ -1,0 +1,12 @@
+.carousel{
+    background-color: rgba(50, 50, 50, 0.5);
+    color: white;
+    text-align: center;
+    height: 400px;
+    background-image: url("./code-ban.jpg"); 
+    opacity: 0.9;
+}
+
+.catchyPhrase{
+    text-shadow: 1px 0px #999999;
+}
