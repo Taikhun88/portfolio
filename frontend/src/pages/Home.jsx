@@ -4,6 +4,7 @@ import Nav from '../components/Nav/Nav';
 import Carousel from '../components/Carousel/Carousel';
 import Card from '../components/Cards/Card';
 import classNames from './Home.module.css'
+import Footer from '../components/Footer/Footer';
 
 function Home() {
     return (
@@ -16,6 +17,7 @@ function Home() {
             <Card/>
             </div>
             <Cards />
+            <Footer />
 
                         
 
