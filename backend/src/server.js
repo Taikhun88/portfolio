@@ -3,25 +3,40 @@ const fastify = require('fastify')({ logger: true })
 
 // Declare a route
 fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
+  return 'Welcome on the admin portal'
 })
+
+// Importation des routes
+fastify.register(require('./routes/users'));
+
+fastify.register(require('./routes/content'));
 
 // Connection to Database
 fastify.register(require('fastify-mongodb'), {
-	// Documentation: https://www.fastify.io/docs/latest/Getting-Started/#your-first-plugin
-	// Documentation: https://www.npmjs.com/package/fastify-mongodb
-	// Documentation: https://docs.mongodb.com/manual/crud/
-  // force to close the mongodb connection when app stopped
   // the default value is false
   forceClose: true,
+  // permet de maintenir la connexion entre le server et la bdd continue. Par défaut, c'est false et donc ça provoque l'interruption de la co.
   url: 'mongodb://localhost:27017/portfolio-project-api'
-	// Si la collection n'existe pas, elle sera automatiquement créé dès l'insertion du premier document.
 })
+
+async function authenticateJWT(request, reply) {
+	try {
+    const decoded = await request.jwtVerify()
+    //cette methode va verifier si un token est present dans le header(postman, les header lorsqu'on fait une requete), si aucun token n'est présent ou que celui ci est invalide alors on retourne une erreur 500
+		return decoded
+	} catch (error) {
+		reply.code(500).send(error)
+	}
+}
+fastify.register(require('fastify-jwt'), {
+  secret: 'JeSUIStropCON@mourir*cestSUR@100%'
+})
+fastify.decorate('authenticate', authenticateJWT)
 
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(3000)
+    await fastify.listen(3005)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
