@@ -2,7 +2,7 @@
 const fastify = require('fastify')({ logger: true })
 
 fastify.register(require('fastify-cors'), { 
-  origin: "http://localhost:3000/"
+  origin: "http://localhost:3000"
 })
 
 // Declare a route
