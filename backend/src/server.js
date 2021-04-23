@@ -1,6 +1,10 @@
 // Require the framework and instantiate it
 const fastify = require('fastify')({ logger: true })
 
+fastify.register(require('fastify-cors'), { 
+  origin: "http://localhost:3000/"
+})
+
 // Declare a route
 fastify.get('/', async (request, reply) => {
   return 'Welcome on the admin portal'
