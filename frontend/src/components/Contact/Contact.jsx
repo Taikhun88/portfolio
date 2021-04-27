@@ -6,32 +6,43 @@ function Contact() {
     const onClick = (event) => {
 		setOpen(!open)
 	}
+
+    const [firstname, setFirstname] = useState ();
+    const [lastname, setLastname] = useState ();
+    const [email, setEmail] = useState ();
+    const [phoneNumber, setPhoneNumber] = useState ();
+
+    const formData = [
+        { value: firstname, name: 'firstname', type: 'text' ,label: "Prénom: ", onChange: setFirstname, required: true},
+        { value: lastname, name: 'lastname', type: 'text' ,label: "Nom: ", onChange: setLastname, required: true},
+        { value: email, name: 'email', type: 'email' ,label: "Email: ", onChange: setEmail, required: true},
+        { value: phoneNumber, name: 'phoneNumber', type: 'tel' ,label: "Téléphone: ", onChange: setPhoneNumber, required: true},
+    ]
     
     return (
         <div className={classNames.papaContainer}>
             <h2 onClick={onClick}>Contactez moi <i class="far fa-edit"></i></h2>
         <div className={classNames.container + (open ? "" : " " + classNames.disable)}>
+            
             <form action="">
                 <div className={classNames.row}>
-                <div>
-                    <label htmlFor="">Prénom: </label>
-                    <input name="firstname" type="text" required/>
-                </div>
+                
+                    {formData.map(object => {
+                        return (
+                            <div>
+                                <label> {object.label} </label>
+                                <input 
+                                type={object.type} 
+                                value={object.value} 
+                                name={object.name} 
+                                onChange={ (ev) => console.log(ev.target.value) } 
+                                required={object.required} 
+                                />
+                            </div>
+                        )
+                    })
+                    }  
 
-                 <div>  
-                    <label htmlFor="">Nom: </label>
-                    <input name="lastname" type="text" required/>
-                </div> 
-
-                <div>
-                    <label htmlFor="">Email: </label>
-                    <input name="email" type="email" required/>
-                </div>
-
-                <div>
-                    <label htmlFor="">Téléphone: </label>
-                    <input name="phonenumber" type="tel"/>
-                </div>
                 </div>
                 <br/>
                 <div>
@@ -57,6 +68,7 @@ function Contact() {
                 </div>
                 <br/>
                 <button type="submit">Envoyer</button>
+
             </form>
         </div>
         </div>
