@@ -1,19 +1,28 @@
+
 .papaContainer{
     display: flex;
     justify-content: center;
-    flex-direction: column;    
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
 .container{
 background-color: rgba(255, 192, 203, 0.3);
 width: 85%;
-padding: 20px;
+padding: 30px;
 }
 
 .row{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container label{
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size: 18px;
 }
 
 .container input{
@@ -25,6 +34,21 @@ padding: 20px;
     margin-bottom: 10px;
 }
 
+.message textarea{
+    margin:0px;
+    width: 100%;
+    height: 120px;
+}
+
 .disable{
     display: none;
+}
+
+.span{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.span > input{
+    border: solid 1px brown;
 }
