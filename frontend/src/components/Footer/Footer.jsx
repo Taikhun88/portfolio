@@ -5,11 +5,11 @@ function Footer() {
     return (
         <footer className = { classNames.footerColor }>
             <ul className = { classNames.ul }>
-                <li className = { classNames.removeLi }>&copy;  2O21</li>
-                <li className = { classNames.removeLi }>Mentions légales</li>
-                <li className = { classNames.removeLi }>Politique de confidentialité</li>
-                <li className = { classNames.removeLi }>Plan du site</li>
-                <li className = { classNames.removeLi }>Contact</li>
+                <li>&copy;  2O21</li>
+                <li>Mentions légales</li>
+                <li>Politique de confidentialité</li>
+                <li>Plan du site</li>
+                <li>Contact</li>
             </ul>
         </footer>
     )
