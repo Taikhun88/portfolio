@@ -15,6 +15,7 @@ fastify.register(require('./routes/users'));
 
 fastify.register(require('./routes/content'));
 
+fastify.register(require('./routes/contact'));
 // Connection to Database
 fastify.register(require('fastify-mongodb'), {
   // the default value is false
