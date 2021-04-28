@@ -11,7 +11,6 @@ function Contact() {
     const [lastname, setLastname] = useState ();
     const [email, setEmail] = useState ();
     const [phoneNumber, setPhoneNumber] = useState ();
-    const [checkBox, setCheckBox] = useState ();
 
     const [ select, setSelect ] = useState ();
     const onClickSelect = (event) => {
@@ -28,16 +27,35 @@ function Contact() {
         { value: firstname, name: 'firstname', type: 'text' ,label: "Prénom: ", onChange: setFirstname, required: true},
         { value: lastname, name: 'lastname', type: 'text' ,label: "Nom: ", onChange: setLastname, required: true},
         { value: email, name: 'email', type: 'email' ,label: "Email: ", onChange: setEmail, required: true},
-        { value: phoneNumber, name: 'phoneNumber', type: 'tel' ,label: "Téléphone: ", onChange: setPhoneNumber, required: true},
-        { value: checkBox, name: 'checkBox', type: 'checkbox' ,label: "", onChange: setCheckBox, required: true},
-    ]
+        { value: phoneNumber, name: 'phoneNumber', type: 'tel' ,label: "Téléphone: ", onChange: setPhoneNumber, required: true},    ]
+
+    const onChangeHandler = async (event) => {
+        event.preventDefault()
+        const response = await fetch("http://localhost:3005/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                firstname,
+                lastname,
+                email,
+                phoneNumber,
+                select,
+                message,               
+
+            })
+        })
+        const data = await response.json()
+		console.log(data)
+    }
     
     return (
         <div className={classNames.papaContainer}>
             <h2 onClick={onClick}>Contactez moi <i class="far fa-edit"></i></h2>
         <div className={classNames.container + (open ? "" : " " + classNames.disable)}>
             
-            <form action="">
+            <form onSubmit= {onChangeHandler}>
                 <div className={classNames.row}>
                 
                     {formData.map(object => {
