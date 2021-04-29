@@ -3,6 +3,7 @@ import classNames from './Footer.module.css'
 
 function Footer() {
     return (
+
         <footer className = { classNames.footerColor }>
             <ul className = { classNames.ul }>
                 <li>&copy;  2O21</li>
@@ -12,6 +13,7 @@ function Footer() {
                 <li>Contact</li>
             </ul>
         </footer>
+
     )
 }
 

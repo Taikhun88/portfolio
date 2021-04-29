@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import Nav from '../components/Nav/Nav';
+import classNames from './Login.module.css';
 
 const Login = () => {
     const [email, setEmail] = useState("")
@@ -30,10 +32,14 @@ const Login = () => {
 	}
 
     return (
-		<div className="flex justify-center">
+		<main className={classNames.fond}>
+
+			<div className={classNames.container}>
+			<label className={classNames.title}>Identifiez vous !</label>
 			<form className="w-72 p-6 rounded-xl shadow-lg" onSubmit={onSubmitHandler}>
-				<div className="mb-4 flex flex-col">
-					<label htmlFor="email" className="text-gray-600 text-sm">Email</label>
+				<div>
+				<div className={classNames.input}>
+					<label htmlFor="email" className="text-gray-600 text-sm">Adresse email: </label>
 					<input
 						className="border-b-2 border-blue-500"
 						type="email"
@@ -44,13 +50,20 @@ const Login = () => {
 						required
 					/>
 				</div>
+
 				<div className="mb-4 flex flex-col">
-					<label className="text-gray-600 text-sm" htmlFor="password">Mot de passe</label>
+					<label className="text-gray-600 text-sm" htmlFor="password">Mot de passe: </label>
 					<input className="border-b-2 border-blue-500" type="password" id="password" name="mot de passe" value={password} onChange={onChangePassword} required />
 				</div>
-				<button type="submit" className="w-full bg-blue-500 px-3 py-1 rounded text-white">Se connecter</button>
+				</div>
+				<div className={classNames.parentbutton}>
+				<button type="submit" className={classNames.button}>Se connecter</button>
+				</div>
 			</form>
-		</div>
+
+			</div>
+		</main>
+		
 	)
 }
 
