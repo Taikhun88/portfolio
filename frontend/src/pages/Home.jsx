@@ -19,9 +19,7 @@ function Home() {
             </div>
             <Cards />
             <Contact/>
-            <Footer />
-
-                        
+            <Footer />                      
 
         </div>
     )
