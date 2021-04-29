@@ -14,12 +14,11 @@ function Contact() {
 
     const [ select, setSelect ] = useState ();
     const onClickSelect = (event) => {
-        console.log(event.target.value)
+
         setSelect(event.target.value)
     };
     const [ message, setMessage ] = useState ();
     const onChangeMessage = (eventMsg) => {
-        console.log(eventMsg.target.value)
         setMessage(eventMsg.target.value)
     }
     
@@ -42,12 +41,11 @@ function Contact() {
                 email,
                 phoneNumber,
                 select,
-                message,               
+                message,              
 
             })
         })
         const data = await response.json()
-		console.log(data)
     }
     
     return (
@@ -66,7 +64,7 @@ function Contact() {
                                 type={object.type} 
                                 value={object.value} 
                                 name={object.name} 
-                                onChange={ (ev) => console.log(ev.target.value) } 
+                                onChange={ (ev) =>  object.onChange(ev.target.value) } 
                                 required={object.required} 
                                 />
                             </div>

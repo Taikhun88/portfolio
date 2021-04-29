@@ -9,8 +9,10 @@ function Nav() {
 
             </div>
             <ul className = {classNames.menus}>
-                <li>Mes projets</li>
-                <li>Se connecter</li>
+                <li><img src="github.png" alt="git" className = {classNames.imgLogoGit} /></li>
+                <li><img src="linkedin.png" alt="lk" className = {classNames.imgLogoLk}/></li>
+                <li><img src="slack.png" alt="slack" className = {classNames.imgLogoSlack}/></li>
+                {/* <li>Se connecter</li> */}
             </ul>
         </nav>
     )
