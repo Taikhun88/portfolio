@@ -9,8 +9,8 @@ import Contact from '../components/Contact/Contact';
 
 function Home() {
     return (
-        <div>
-            <Nav/>
+        <main>
+
             <Carousel/>
             <div className = {classNames.divContainer}>
             <Card/>
@@ -19,9 +19,9 @@ function Home() {
             </div>
             <Cards />
             <Contact/>
-            <Footer />                      
+                      
 
-        </div>
+        </main>
     )
 }
 

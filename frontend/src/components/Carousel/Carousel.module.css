@@ -3,9 +3,14 @@
     color: white;
     text-align: center;
     height: 180px;
+    background-position: center;
+    text-shadow: 2px 2px #000000;
     background-image: url("./banner.png"); 
-    object-fit: contain;
+    object-fit: cover;
     opacity: 0.9;
+    padding-top: 10px;
+    margin-top: 5px;
+
 }
 
 .title{
@@ -14,5 +19,5 @@
 }
 
 .catchyPhrase{
-    text-shadow: 1px 0px #999999;
+    text-shadow: 2px 2px #000000;
 }
