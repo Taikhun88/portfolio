@@ -11,6 +11,7 @@ fastify.get('/', async (request, reply) => {
 })
 
 // Importation des routes
+
 fastify.register(require('./routes/users'));
 
 fastify.register(require('./routes/content'));

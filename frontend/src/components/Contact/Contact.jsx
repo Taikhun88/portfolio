@@ -45,7 +45,7 @@ function Contact() {
 
             })
         })
-        const data = await response.json()
+        await response.json()
     }
     
     return (
