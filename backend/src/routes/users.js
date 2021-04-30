@@ -1,5 +1,6 @@
 const argon2 = require('argon2')
 const createError = require('http-errors')
+const transport = require('../nodemailer')
 
 async function routes (fastify, options) {
     // #region Create new user ADMIN only
@@ -78,6 +79,14 @@ async function routes (fastify, options) {
             expiresIn: '10m',
         })
         // ce token délivré à l'utilisateur permet de naviguer avec ses données d'authentification en toute sécurité pendant une durée fixée
+
+        await transport.sendMail({ 
+            from: '"Notre Site" <notresitecontact@gmail.com>',
+            to: user.email,
+            subject: "Test",
+            text: "Ceci est un test",
+            html: "<p>Ceci est un test au format HTML</p>"
+        })
 
         reply.code(200).send({ token })
         // si les infos id et mdp match alors un token est délivré via le reply.code 200. 
