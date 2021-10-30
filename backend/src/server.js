@@ -23,7 +23,7 @@ fastify.register(require('fastify-mongodb'), {
   forceClose: true,
   // permet de maintenir la connexion entre le server et la bdd continue. Par défaut, c'est false et donc ça provoque l'interruption de la co.
   url: 'mongodb://localhost:27017/portfolio-project-api'
-})
+});
 
 async function authenticateJWT(request, reply) {
 	try {
@@ -34,9 +34,11 @@ async function authenticateJWT(request, reply) {
 		reply.code(500).send(error)
 	}
 }
+
 fastify.register(require('fastify-jwt'), {
   secret: 'JeSUIStropCON@mourir*cestSUR@100%'
 })
+
 fastify.decorate('authenticate', authenticateJWT)
 
 // Run the server!
@@ -48,4 +50,5 @@ const start = async () => {
     process.exit(1)
   }
 }
+
 start()

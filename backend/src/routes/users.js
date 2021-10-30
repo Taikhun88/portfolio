@@ -80,6 +80,7 @@ async function routes (fastify, options) {
         })
         // ce token délivré à l'utilisateur permet de naviguer avec ses données d'authentification en toute sécurité pendant une durée fixée
 
+        
         await transport.sendMail({ 
             from: '"Notre Site" <notresitecontact@gmail.com>',
             to: user.email,
